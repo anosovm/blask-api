@@ -1,0 +1,37 @@
+version: '3.8'
+
+networks:
+    blask-workspace:
+        name: blask-workspace
+        external: true
+    local:
+        driver: bridge
+
+services:
+    php:
+        build:
+            context: .
+            dockerfile: ./.docker/php/Dockerfile
+        environment:
+            - XDEBUG_CLIENT_HOST=${XDEBUG_CLIENT_HOST:-172.17.0.1}
+        restart: always
+        networks:
+            - blask-workspace
+            - local
+        volumes:
+            - ./:/var/www
+
+    nginx:
+        build:
+            context: .
+            dockerfile: ./.docker/nginx/Dockerfile
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - php
+        networks:
+            local:
