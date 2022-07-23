@@ -14,12 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
+Route::post('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+
+Route::prefix('auth')->group(function () {
+//    Route::post('/', [\App\Http\Controllers\AuthController::class, 'auth'])->name('auth');
+    Route::post('/reg', [\App\Http\Controllers\AuthController::class, 'register'])->name('register');
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 
 Route::prefix('test')->name('test')->group(function () {
-    Route::get('/', [\App\Http\Controllers\Controller::class, 'lol'])->name('lol');
-    Route::post('/', [\App\Http\Controllers\Controller::class, 'kek'])->name('kek');
+    Route::get('/', [\App\Http\Controllers\Controller::class, 'index'])->name('index');
+    Route::post('/', [\App\Http\Controllers\Controller::class, 'create'])->name('create');
 });
