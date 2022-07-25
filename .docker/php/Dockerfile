@@ -37,8 +37,7 @@ RUN install-php-extensions \
     pdo_pgsql \
     pdo_mysql \
     redis \
-    imagick \
-    xdebug
+    imagick
 
 COPY ./.docker/php/serialize_precision.ini /usr/local/etc/php/conf.d/serialize_precision.ini
 COPY ./.docker/php/docker-php-ext-opcache.ini /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini

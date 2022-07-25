@@ -26,6 +26,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['middleware' => 'auth:sanctum'], function() {
+
+    Route::prefix('project')->group(function() {
+        Route::post('/', [\App\Http\Controllers\ProjectController::class, 'create'])->name('create');
+        Route::get('/', [\App\Http\Controllers\ProjectController::class, 'index'])->name('index');
+    });
+
+});
+
 
 Route::prefix('test')->name('test')->group(function () {
     Route::get('/', [\App\Http\Controllers\Controller::class, 'index'])->name('index');
