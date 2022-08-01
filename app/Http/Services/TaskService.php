@@ -20,6 +20,7 @@ class TaskService
         $task->project_id = $dto->projectId;
         $task->performer_id = $dto->performerId;
         $task->created_by = auth()->user()->id;
+        $task->type_id = $dto->typeId;
 
         return $task->save();
     }

@@ -13,4 +13,6 @@ class TaskCreateDto
     public int $performerId;
 
     public int $priority;
+
+    public int $typeId;
 }

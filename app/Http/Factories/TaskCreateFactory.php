@@ -16,6 +16,7 @@ class TaskCreateFactory
         $dto->priority = $request->get('priority');
         $dto->performerId = $request->get('performer_id');
         $dto->projectId = $request->get('project_id');
+        $dto->typeId = $request->get('type_id');
 
         return $dto;
     }

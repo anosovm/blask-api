@@ -11,7 +11,16 @@ class Sprint extends Model
         'name',
         'date_start',
         'date_end',
-        'project_id'
+        'project_id',
+        'created_at'
+    ];
+
+    public $timestamps = false;
+
+    public $casts = [
+        'date_start' => 'date',
+        'date_end' => 'date',
+        'created_at' => 'date'
     ];
 
     public function tasks(): HasMany

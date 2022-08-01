@@ -11,4 +11,9 @@ class SprintQueries
     {
         return Sprint::with(['tasks', 'tasks.performer', 'tasks.status', 'tasks.type'])->where('project_id', $projectId)->get();
     }
+
+    public function getCountSprintsByProjectIdForCurrentYear(int $projectId): int
+    {
+        return Sprint::where('project_id', $projectId)->where('created_at', '>', now()->startOfYear())->count();
+    }
 }

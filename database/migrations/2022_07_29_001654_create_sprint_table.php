@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('date_start')->nullable();
             $table->timestamp('date_end')->nullable();
             $table->integer('project_id')->nullable();
+            $table->timestamp('created_at');
         });
     }
 
