@@ -9,6 +9,8 @@ class TaskStatus extends Model
 {
     use HasFactory;
 
+    public const DEFAULT_STATUS_ID = 1;
+
     protected $fillable = [
         'name'
     ];

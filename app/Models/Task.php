@@ -16,6 +16,8 @@ class Task extends Model
         'description',
         'performer_id',
         'status_id',
+        'sprint_id',
+        'type_id',
         'created_by',
     ];
 

@@ -11,12 +11,12 @@ class TaskUpdateFactory
         $dto = new TaskUpdateDto();
 
         $dto->name = $request->get('name');
-        $dto->description = $request->get('description');
+//        $dto->description = $request->get('description');
         $dto->priority = $request->get('priority');
-        $dto->performerId = $request->get('performer.id');
-        $dto->statusId = $request->get('status.id');
-        $dto->typeId = $request->get('type.id');
-        $dto->sprintId = $request->get('sprint.id');
+        $dto->performerId = $request->get('performer_id');
+        $dto->statusId = $request->get('status_id');
+        $dto->typeId = $request->get('type_id');
+        $dto->sprintId = $request->get('sprint_id');
 
         return $dto;
     }

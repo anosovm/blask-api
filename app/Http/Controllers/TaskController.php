@@ -29,7 +29,6 @@ class TaskController extends BaseController
     {
         $dto = TaskUpdateFactory::fromRequest($request);
 
-        logger($dto->statusId);
         $task = $queries->getById($taskId);
 
         return $service->update($task, $dto);
