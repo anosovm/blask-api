@@ -19,7 +19,8 @@ class Task extends AbstractResource
             'description'   => $task->description,
             'performer'     => new Performer($task->performer),
             'status'        => $task->status,
-            'type'          => $task->type
+            'type'          => $task->type,
+            'sprint_id'     => $task->sprint_id
         ];
     }
 }

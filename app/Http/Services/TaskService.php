@@ -37,6 +37,10 @@ class TaskService
         $task->type_id = $dto->typeId;
         $task->sprint_id = $dto->sprintId;
 
-        return $task->save();
+        $task->save();
+
+        $task->refresh();
+
+        return $task;
     }
 }

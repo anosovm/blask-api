@@ -31,7 +31,7 @@ class TaskController extends BaseController
 
         $task = $queries->getById($taskId);
 
-        return $service->update($task, $dto);
+        return new TaskResource($service->update($task, $dto));
     }
 
     public function create(Request $request, TaskService $service)
