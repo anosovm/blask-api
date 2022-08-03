@@ -16,6 +16,10 @@ class ProjectService
         $project->code = $dto->code;
         $project->created_by = auth()->user()->id;
 
+        $project->save();
+
+        $project->owners()->attach([auth()->user()->id]);
+
         return $project->save();
     }
 }

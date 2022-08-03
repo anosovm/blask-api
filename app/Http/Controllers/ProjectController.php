@@ -19,7 +19,7 @@ class ProjectController extends BaseController
 
     public function index()
     {
-        return Project::with(['creator'])->whereHas('creator', function ($query) {
+        return Project::with(['creator'])->whereHas('owners', function ($query) {
            $query->where('id', auth()->user()->id);
         })->get();
     }
